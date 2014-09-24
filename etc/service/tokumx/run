@@ -1,0 +1,7 @@
+#!/bin/bash -e
+
+mkdir -p /var/lib/tokumx
+chown -Rh tokumx:tokumx /var/lib/tokumx
+
+exec chpst -u tokumx:tokumx /usr/bin/mongod --config /etc/tokumx.conf $TOKUMX_ARGS 2>&1
+
