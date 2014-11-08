@@ -1,5 +1,8 @@
 #!/bin/bash -e
 
+# Try to disable huge pages (this will only work on privileged containers)
+echo never > /sys/kernel/mm/transparent_hugepage/enabled 2>/dev/null || true
+
 mkdir -p /var/lib/tokumx
 chown -Rh tokumx:tokumx /var/lib/tokumx
 
